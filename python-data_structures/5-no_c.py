@@ -1,10 +1,7 @@
 #!/usr/bin/python3
-def new_in_list(my_list, idx, element):
-    list_copy = my_list[:]
-    if idx < 0:
-        return list_copy
-    elif idx >= len(my_list):
-        return list_copy
-    else:
-        list_copy[idx] = element
-        return list_copy
+def no_c(my_string):
+    new_string = ""
+    for i in range(len(my_string)):
+        if (my_string[i] != 'c' and my_string[i] != 'C'):
+            new_string = new_string + my_string[i]
+    return new_string
