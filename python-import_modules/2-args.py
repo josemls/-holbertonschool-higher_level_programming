@@ -1,9 +1,18 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-    from calculator_1 import add, sub, mul, div
-    a = 10
-    b = 5
-    print("{:d} + {:d} = {:d}".format(a, b, add(a, b)))
-    print("{:d} - {:d} = {:d}".format(a, b, sub(a, b)))
-    print("{:d} * {:d} = {:d}".format(a, b, mul(a, b)))
-    print("{:d} / {:d} = {:d}".format(a, b, div(a, b)))
+    import sys
+    argc = len(sys.argv[1:])
+    argv = sys.argv[1:]
+    i = 1
+    if len(sys.argv[1:]) == 0:
+        print(f"{argc} arguments.")
+    elif len(sys.argv[1:]) == 1:
+        print(f"{argc} argument:")
+        while i <= argc:
+            print("{:d}: {:s}".format(i, sys.argv[i]))
+            i += 1
+    elif len(sys.argv[1:]) > 1:
+        print(f"{argc} arguments:")
+        while i <= argc:
+            print("{:d}: {:s}".format(i, sys.argv[i]))
+            i += 1
