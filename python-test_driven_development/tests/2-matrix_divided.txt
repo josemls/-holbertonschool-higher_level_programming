@@ -1,45 +1,106 @@
-The ``2-matrix_divided`` module
-===============================
+======================
+Test cases for 2-matrix_divided.py
+======================
 
-Using ``matrix_divided``
+This library has a function that divides all elements of a matrix.
+The list must have same size cows , and each element must be int or 
+float, div agrument must be int and not 0
 
-------------------------
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
 
-Importing method:
-        >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+Documentation
+=============
+Here we verify if our modules an funtions are documented, for holberton requirements is a must.
+we use __doc__ to verify module's and function's Documentation
 
-Now use it:
+    >>> module_doc = __import__("2-matrix_divided").__doc__
+    >>> print(len(module_doc) > 0)
+    True
 
-Basic int, float cases.
+    >>> funciont_doc = __import__("2-matrix_divided").matrix_divided.__doc__
+    >>> print(len(funciont_doc) > 0)
+    True
 
-        >>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
-        [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+Tests
+=======
 
-        >>> matrix_divided([[-2, 3, 4], [5, 6, 7]], 2)
-        [[-1.0, 1.5, 2.0], [2.5, 3.0, 3.5]]
+Testing matrix 2x2 with integers
+---------------------------------
 
-        >>> matrix_divided([[2, -3 ,4], [5, 6, 7]], 4)
-        [[0.5, -0.75, 1.0], [1.25, 1.5, 1.75]]
+        >>> matrix = [[1, 2, 3], [7, 8, 9]]
+        >>> matrix_divided(matrix, 3)
+        [[0.33, 0.67, 1.0], [2.33, 2.67, 3.0]]
 
-Parameter div cases.
+Testing matrix 2x2 with floats
+-------------------------------
 
-        >>> matrix_divided([[1, 2, 3], [4, 5, 6]])
+        >>> matrix = [[1.5, 2, 3], [7, 8.5, 9]]
+        >>> matrix_divided(matrix, 3)
+        [[0.5, 0.67, 1.0], [2.33, 2.83, 3.0]]
+
+Testing a matrix empty
+-----------------------
+
+        >>> matrix = []
+        >>> matrix_divided(matrix, 2)
         Traceback (most recent call last):
-        TypeError: matrix_divided() missing 1 required positional argument: 'div'
+        IndexError: list index out of range
 
-        >>> matrix_divided([[1, 2, 3], [4, 5, 6]], None)
-        Traceback (most recent call last):
-        TypeError: div must be a number
-Parameter matrix cases.
+Testing a matrix with different size of rows
+-------------------------------------------
 
-        >>> matrix_divided()
+        >>> matrix = [[1.5, 2, 3], [7, 8.5, 9, 21], [1, 4, 7]]
+        >>> matrix_divided(matrix, 3)
         Traceback (most recent call last):
-        TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+        ...
+        TypeError: Each row of the matrix must have the same size
 
-        >>> matrix_divided([[], [4, 5, 6]], 10)
+Testing a matrix with strings
+-----------------------------
+
+        >>> matrix = [[1.5, 2, 3], [7, "8.5", 21]]
+        >>> matrix_divided(matrix, 3)
         Traceback (most recent call last):
+        ...
         TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-        >>> matrix_divided([[1, "Holberton", 3], [4, 5, 6]], 10)
+Testing a matrix divided by 0
+-----------------------------
+        >>> matrix = [[1.5, 2, 3], [7, 8.5, 21]]
+        >>> matrix_divided(matrix, 0)
         Traceback (most recent call last):
+        ...
+        ZeroDivisionError: division by zero
+
+Testing a matrix divided by string
+---------------------------------
+
+        >>> matrix = [[1.5, 2, 3], [7, 8.5, 21]]
+        >>> matrix_divided(matrix, "8")
+        Traceback (most recent call last):
+        ...
+        TypeError: div must be a number
+
+Testing a matrix divided by integer
+-----------------------------------
+
+        >>> matrix = [[1.5, 2, 3], [7, 8.5, 21]]
+        >>> matrix_divided(matrix, 3)
+        [[0.5, 0.67, 1.0], [2.33, 2.83, 7.0]]
+
+Testing a matrix divided by float
+---------------------------------
+
+        >>> matrix = [[1.5, 2, 3], [7, 8.5, 21]]
+        >>> matrix_divided(matrix, 2.3)
+        [[0.65, 0.87, 1.3], [3.04, 3.7, 9.13]]
+
+Testing a matrix divided by float
+----------------------------------
+
+        >>> matrix = [[3, "9"], [12, 3]]
+        >>> matrix_divided(matrix, 3)
+        Traceback (most recent call last):
+        ...
         TypeError: matrix must be a matrix (list of lists) of integers/floats
