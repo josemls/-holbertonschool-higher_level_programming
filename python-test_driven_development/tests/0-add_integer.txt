@@ -1,0 +1,50 @@
+The ``0-add_integer`` module
+============================
+
+Using ``add_integer``
+---------------------
+
+Importing method:
+        >>> add_integer = __import__('0-add_integer').add_integer
+
+Now use it:
+
+Test for positive integers parameters.
+
+        >>> add_integer(13, 7)
+        20
+        >>> add_integer(10000000000000000000000000000000000000000, 1)
+        10000000000000000000000000000000000000001
+        >>> add_integer(15, 3)
+        18
+
+
+Test for negative integers parameters.
+
+        >>> add_integer(1, -15)
+        -14
+        >>> add_integer(-8, -19)
+        -27
+        >>> add_integer(-3, 2)
+        -1
+
+
+Test for positive float parameters.
+
+        >>> add_integer(1.2, 2.8)
+        3
+        >>> add_integer(1024, 56.7)
+        1080
+        >>> add_integer(12.8, 33)
+        45
+
+
+
+Test for negative float parameters.
+
+        >>> add_integer(-2.4, -6.1)
+        -8
+        >>> add_integer(-1.2, 12)
+        11
+        >>> add_integer(9, -13.3)
+        -4
