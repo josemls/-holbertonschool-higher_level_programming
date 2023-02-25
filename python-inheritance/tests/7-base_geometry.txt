@@ -1,0 +1,49 @@
+The ``7-base_geometry`` module
+========================
+
+Using ``base_geometry``
+
+------------------------
+
+Importing class:
+        >>> bg = __import__('7-base_geometry').BaseGeometry
+
+Now use it:
+
+        >>> x = bg()
+        >>> x.integer_validator("random text", [1, 2, 3])
+        Traceback (most recent call last):
+        TypeError: random text must be an integer
+
+        >>> x.integer_validator("random text", None)
+        Traceback (most recent call last):
+        TypeError: random text must be an integer
+
+        >>> x.integer_validator("random text", -1)
+        Traceback (most recent call last):
+        ValueError: random text must be greater than 0
+
+        >>> x.integer_validator("random text", 0)
+        Traceback (most recent call last):
+        ValueError: random text must be greater than 0
+
+        >>> x.integer_validator("random text", 1)
+
+        >>> x.integer_validator("", -10)
+        Traceback (most recent call last):
+        ValueError:  must be greater than 0
+
+	>>> x.integer_validator()
+	Traceback (most recent call last):
+   	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+	>>> x.integer_validator("random text")
+    	Traceback (most recent call last):
+    	TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+	>>> x.area()
+	Traceback (most recent call last):
+    	Exception: area() is not implemented
+
+	>>> type(x) == bg
+    	True
