@@ -1,13 +1,10 @@
 #!/usr/bin/python3
-"""_summary_"""
-
-
+""" Json func"""
 import json
 
 
 def load_from_json_file(filename):
-    """_summary_"""
-    with open(filename, 'r') as file:
-        json_string = file.read()
-        obj = json.loads(json_string)
-    return 
+    """ read an json file"""
+    with open(filename, 'r') as f:
+        x = json.load(f)
+    return
