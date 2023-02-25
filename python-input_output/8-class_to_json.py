@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-""" class to json func"""
+"""_summary_"""
 
 
 def class_to_json(obj):
-    """function that return a dictionary of object"""
-    return obj
+    """_summary_"""
+    return obj.__dict__ 
