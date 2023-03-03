@@ -5,6 +5,7 @@ import json
 import csv
 import os.path
 
+
 class Base:
         """ class called Base"""
         __nb_objects = 0
@@ -16,3 +17,4 @@ class Base:
                 else:
                         Base.__nb_objects += 1
                         self.id = self.__nb_objects
+                        
