@@ -8,12 +8,12 @@ import os.path
 
 
 class Base:
-    """Class manage attributes"""
+    """Class manage id attributes"""
 
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """Constructor Class"""
+        """Class Constructor"""
 
         if id is not None:
             self.id = id
@@ -44,3 +44,20 @@ class Base:
 
         with open(filename, 'w') as file:
             file.write(lists)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Returns the list of the JSON string representation"""
+        if json_string is None:
+            return []
+        return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Returns an instance with all attributes already set"""
+        if cls.__name__ == "Rectangle":
+            new = cls(10, 10)
+        else:
+            new = cls(10)
+        new.update(**dictionary)
+        return new
