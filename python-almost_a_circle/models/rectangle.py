@@ -90,3 +90,33 @@ class Rectangle(Base):
             for i in range(w):
                 print("#", end="")
             print()
+
+    def __str__(self):
+        """Print rectangle"""
+        id = self.id
+        x = self.__x
+        y = self.__y
+        w = self.__width
+        h = self.__height
+        return f"[Rectangle] ({id}) {x}/{y} - {w}/{h}"
+
+    def update(self, *args, **kwargs):
+        """Update the Rectangle class"""
+        arguments = ("id", "width", "height", "x", "y")
+        if args:
+            for i in range(len(args)):
+                setattr(self, arguments[i], args[i])
+        else:
+            for i, ii in kwargs.items():
+                if hasattr(self, i):
+                    setattr(self, i, ii)
+
+    def to_dictionary(self):
+        """Return a dictionary representation of a Rectangle"""
+        return {
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+            }
