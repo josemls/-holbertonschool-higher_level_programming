@@ -1,6 +1,6 @@
 -- creating a table
 
 CREATE TABLE IF NOT EXISTS (
-    ID int,
-    name varchar(256)
+    id int,
+    name VARCHAR(256)
 );
