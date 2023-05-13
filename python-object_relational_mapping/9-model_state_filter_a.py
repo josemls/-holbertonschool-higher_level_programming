@@ -1,4 +1,4 @@
-!/usr/bin/python3
+#!/usr/bin/python3
 """script that lists all State objects"""
 
 from sqlalchemy import create_engine
