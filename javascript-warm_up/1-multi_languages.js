@@ -1,2 +1,6 @@
 #!/usr/bin/node
-console.log('C is fun\nPython is cool\nJavascript is amazing');
+#!/usr/bin/node
+const a = 'C is fun';
+const b = 'Python is cool';
+const c = 'JavaScript is amazing';
+console.log(a + '\n' + b + '\n' + c);
